@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "types": [
+      "@types/google-apps-script"
+    ]
+  }
+}
