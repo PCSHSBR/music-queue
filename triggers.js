@@ -6,6 +6,7 @@ function setup() {
 
 // on form submit
 function onFormSubmit(e) {
+  // Logger.log(JSON.stringify(e))
   // append data to sheet
   let sheet = SpreadsheetApp.openByUrl(DATA_SHEET_URL);
   let sheetData = sheet.getSheetByName(SHEET_NAME);

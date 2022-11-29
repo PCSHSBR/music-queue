@@ -14,8 +14,9 @@ const MAX_LAST_TIME_BEFORE_USE_CACHE = 1000 * 60 * 60 * 6; // 12 hours
 
 /**
  * ชื่อแคชที่จะใช้ในการเก็บข้อมูล
+ * แก้ไขตรงนี้จะเป็นการรีเฟรชแคช
  */
-const QUEUE_CACHE_KEY = "queue";
+const QUEUE_CACHE_KEY = "queue2";
 
 /**
  * ระยะเวลาที่แคชจะหมดอายุ ก่อนจะถูกคำนวนใหม่
