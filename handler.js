@@ -18,7 +18,7 @@ function getData() {
   let cacheKey = QUEUE_CACHE_KEY;
   let cacheData = cache.get(cacheKey);
   // return cached data if last update was more than MIN_LAST_TIME_BEFORE_USE_CACHE time ago
-  if (cacheData && ((now - lastUpdate) > MIN_LAST_TIME_BEFORE_USE_CACHE)) {
+  if (cacheData && ((now - lastUpdate) > MIN_LAST_TIME_BEFORE_USE_CACHE) && ((now - lastUpdate) < MAX_LAST_TIME_BEFORE_USE_CACHE)) {
     Logger.log("Using cached data");
     return JSON.parse(cacheData);
   }
