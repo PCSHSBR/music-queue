@@ -23,8 +23,8 @@
       </p>
     </noscript>
     <h1>คิวเพลง</h1>
-    <p>ขอเพลงได้ที่ <a href="https://forms.gle/CktJEiBMNAGVxhwa8"
-        title="Song request 📓✨ - กูเกิลฟอร์ม" target="_blank">forms.gle/CktJEiBMNAGVxhwa8</a></p>
+    <p>ขอเพลงได้ที่ <a href="https://forms.gle/CktJEiBMNAGVxhwa8" title="Song request 📓✨ - กูเกิลฟอร์ม"
+        target="_blank">forms.gle/CktJEiBMNAGVxhwa8</a></p>
     <span class="loading-spiner">
       กำลังโหลด...
     </span>
@@ -395,8 +395,8 @@
       const hour = now.getHours()
       const minute = now.getMinutes()
       if (
-        !(hour === 6 && minute < 30 && minute > 35) ||
-        !(hour === 16 && minute < 20 && minute > 25)
+        !(hour === 6 && minute >= 30 && minute <= 35) &&
+        !(hour === 16 && minute >= 20 && minute <= 25)
       ) {
         clearInterval(interval)
       }
