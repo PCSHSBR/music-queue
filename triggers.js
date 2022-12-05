@@ -13,7 +13,8 @@ function onFormSubmit(e) {
   let data = e.response.getItemResponses();
   let row = [];
   let date = e.response.getTimestamp();
-  row.push(Utilities.formatDate(date, "GMT+7", "yyyy-MM-dd HH:mm:ss"));
+  // 2001-07-04T12:08:56.235-0700
+  row.push(Utilities.formatDate(date, "GMT+7", "yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
   for (let i = 0; i < data.length; i++) {
     row.push(data[i].getResponse());
   }
