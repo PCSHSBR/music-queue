@@ -26,8 +26,9 @@ function getData() {
   let today = Utilities.formatDate(new Date(), "GMT+7", `yyyy-MM-dd ${new Date().getHours() >= 12 ? "12" : "00"}:00:00`);
   let todayDate = new Date(today)
   let todayData = [];
-  for (let i = 2000; i < data.length; i++) {
-    if (data[i][0] > todayDate) {
+  for (let i = 2400; i < data.length; i++) {
+    let dataDate = new Date(data[i][0])
+    if (dataDate > todayDate) {
       todayData.push({
         timestamp: data[i][0],
         name: data[i][1],
