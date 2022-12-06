@@ -1,6 +1,8 @@
 function getDataTable() {
   let template = HtmlService.createTemplateFromFile('templates/table')
   template.data = getData()
+  Logger.log(template
+    .evaluate().getContent())
   return template
     .evaluate().getContent()
 }
@@ -18,26 +20,26 @@ function getData() {
   let cacheKey = QUEUE_CACHE_KEY;
   let cacheData = cache.get(cacheKey);
   // return cached data if last update was more than MIN_LAST_TIME_BEFORE_USE_CACHE time ago
-  if (cacheData && ((now - lastUpdate) > MIN_LAST_TIME_BEFORE_USE_CACHE) && ((now - lastUpdate) < MAX_LAST_TIME_BEFORE_USE_CACHE)) {
-    Logger.log("Using cached data");
+  if (false || cacheData && ((now - lastUpdate) > MIN_LAST_TIME_BEFORE_USE_CACHE) && ((now - lastUpdate) < MAX_LAST_TIME_BEFORE_USE_CACHE)) {
+    Logger.log("Using cached data");  
     return JSON.parse(cacheData);
   }
-  let data = sheetData.getDataRange().getValues();
-  let today = Utilities.formatDate(new Date(), "GMT+7", `yyyy-MM-dd ${new Date().getHours() >= 12 ? "12" : "00"}:00:00`);
-  let todayDate = new Date(today)
+  // only get last 75 rows
+  let data = sheetData.getRange(/* row */ sheetData.getLastRow() - 74, /* column */ 1, /* numRows */ 75, /* numColumns */ 4).getValues();
+  let today = new Date(Utilities.formatDate(new Date(), "GMT+7", `yyyy-MM-dd ${new Date().getHours() >= 12 ? "12" : "00"}:00:00+0700`));
   let todayData = [];
-  for (let i = 2400; i < data.length; i++) {
-    let dataDate = new Date(data[i][0])
-    if (dataDate > todayDate) {
+  for (let i = 0; i < data.length; i++) {
+    let row = data[i];
+    let rowDate = new Date(row[0]);
+    if (rowDate >= today) {
       todayData.push({
-        timestamp: data[i][0],
-        name: data[i][1],
-        artist: data[i][2],
-        note: data[i][3]
+        timestamp: Utilities.formatDate(rowDate, "GMT+7", "yyyy-MM-dd'T'HH:mm:ss.SSSZ"),
+        name: row[1],
+        artist: row[2],
+        note: row[3]
       });
     }
   }
-  // cache data for CACHE_TIME time
   cache.put(cacheKey, JSON.stringify(todayData), CACHE_TIME);
   return todayData;
 }
