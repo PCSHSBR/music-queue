@@ -40,6 +40,11 @@ function getData() {
       });
     }
   }
+  todayData = todayData.sort(function(a,b){
+    // Turn your strings into dates, and then subtract them
+    // to get a value that is either negative, positive, or zero.
+    return new Date(b.timestamp) - new Date(a.timestamp);
+  }).reverse();
   cache.put(cacheKey, JSON.stringify(todayData), CACHE_TIME);
   return todayData;
 }
