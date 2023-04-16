@@ -10,13 +10,27 @@ function onFormSubmit(e) {
   // append data to sheet
   let sheet = SpreadsheetApp.openByUrl(DATA_SHEET_URL);
   let sheetData = sheet.getSheetByName(SHEET_NAME);
-  let data = e.response.getItemResponses();
+
+  let data;
+  try {
+    data = exponentialBackoff_(() => e.response.getItemResponses());
+  } catch (error) {
+    Logger.log(error.message);
+    data = '';
+  }
   let row = [];
-  let date = e.response.getTimestamp();
+  let date;
+  try {
+    date = exponentialBackoff_(() => e.response.getTimestamp());
+  } catch (error) {
+    Logger.log(error.message);
+    date = '';
+  }
   // 2001-07-04T12:08:56.235-0700
   row.push(Utilities.formatDate(date, "GMT+7", "yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
   for (let i = 0; i < data.length; i++) {
     row.push(data[i].getResponse());
   }
+  Logger.log(row)
   sheetData.appendRow(row);
 }
