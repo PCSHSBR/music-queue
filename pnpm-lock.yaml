@@ -1,23 +1,28 @@
-lockfileVersion: 5.4
-
-specifiers:
-  '@types/google-apps-script': ^1.0.56
-  typescript: ^4.9.3
+lockfileVersion: "6.0"
 
 dependencies:
-  '@types/google-apps-script': 1.0.56
+  "@types/google-apps-script":
+    specifier: ^1.0.56
+    version: 1.0.56
 
 devDependencies:
-  typescript: 4.9.3
+  typescript:
+    specifier: ^4.9.3
+    version: 4.9.3
 
 packages:
-
-  /@types/google-apps-script/1.0.56:
-    resolution: {integrity: sha512-3YGOtRlnWPSARl/n2BKt0qiIA6Y3/5BLC2zH9s/jcu+1rpxR07noLCFxTZ2BQBIfDl6+Vs9iKjLTgdbbL8q/mg==}
+  /@types/google-apps-script@1.0.56:
+    resolution:
+      {
+        integrity: sha512-3YGOtRlnWPSARl/n2BKt0qiIA6Y3/5BLC2zH9s/jcu+1rpxR07noLCFxTZ2BQBIfDl6+Vs9iKjLTgdbbL8q/mg==,
+      }
     dev: false
 
-  /typescript/4.9.3:
-    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
-    engines: {node: '>=4.2.0'}
+  /typescript@4.9.3:
+    resolution:
+      {
+        integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==,
+      }
+    engines: { node: ">=4.2.0" }
     hasBin: true
     dev: true

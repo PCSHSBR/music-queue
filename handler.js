@@ -46,5 +46,5 @@ function getData() {
     return new Date(b.timestamp) - new Date(a.timestamp);
   }).reverse();
   cache.put(cacheKey, JSON.stringify(todayData), CACHE_TIME);
-  return todayData;
+  return todayData
 }

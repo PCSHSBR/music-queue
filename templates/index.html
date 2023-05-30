@@ -33,6 +33,7 @@
       <thead>
         <tr>
           <th>ที่</th>
+          <th class="datetime">เวลาขอ</th>
           <th>ชื่อเพลง</th>
           <th>ศิลปิน</th>
           <th>หมายเหตุ</th>
@@ -45,6 +46,9 @@
         <tr>
           <td>
             <?= i + 1 ?>
+          </td>
+          <td class="datetime">
+            <?= Utilities.formatDate(new Date(data[i].timestamp), Session.getScriptTimeZone(), "HH:mm:ss.SSS") ?>
           </td>
           <td>
             <?= data[i].name ?>
@@ -370,6 +374,21 @@
 
     100% {
       transform: rotate(360deg);
+    }
+  }
+
+  td.datetime, th.datetime {
+    display: none;
+  }
+
+  td.datetime {
+    text-align: center;
+    font-family: monospace, monospace;
+  }
+
+  @media (min-width: 600px) {
+    td.datetime, th.datetime {
+      display: table-cell;
     }
   }
 </style>
