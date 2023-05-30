@@ -1,7 +1,7 @@
 function setup() {
   // for form permission
-  FormApp.getActiveForm()
-  SpreadsheetApp.getActiveSpreadsheet()
+  FormApp.getActiveForm();
+  SpreadsheetApp.getActiveSpreadsheet();
 }
 
 // on form submit
@@ -16,7 +16,7 @@ function onFormSubmit(e) {
     data = exponentialBackoff_(() => e.response.getItemResponses());
   } catch (error) {
     Logger.log(error.message);
-    data = '';
+    data = "";
   }
   let row = [];
   let date;
@@ -24,13 +24,13 @@ function onFormSubmit(e) {
     date = exponentialBackoff_(() => e.response.getTimestamp());
   } catch (error) {
     Logger.log(error.message);
-    date = '';
+    date = "";
   }
   // 2001-07-04T12:08:56.235-0700
   row.push(Utilities.formatDate(date, "GMT+7", "yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
   for (let i = 0; i < data.length; i++) {
     row.push(data[i].getResponse());
   }
-  Logger.log(row)
+  Logger.log(row);
   sheetData.appendRow(row);
 }

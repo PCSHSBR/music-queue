@@ -6,7 +6,7 @@ function deleteOldSongsInForm() {
   Logger.log("Deleting old songs in form");
   let activeForm = FormApp.getActiveForm();
   activeForm.deleteAllResponses();
-  resetFormTargetSheet()
+  resetFormTargetSheet();
 }
 
 function resetFormTargetSheet() {
@@ -24,7 +24,16 @@ function resetFormTargetSheet() {
     // target spreadsheet not found
     Logger.log("Target spreadsheet not found");
     // create new and set as form target
-    let newSheet = SpreadsheetApp.create(`Song request (from ${Utilities.formatDate(new Date(), "GMT+7", "yyyy-MM-dd")})`);
-    activeForm.setDestination(FormApp.DestinationType.SPREADSHEET, newSheet.getId());
+    let newSheet = SpreadsheetApp.create(
+      `Song request (from ${Utilities.formatDate(
+        new Date(),
+        "GMT+7",
+        "yyyy-MM-dd"
+      )})`
+    );
+    activeForm.setDestination(
+      FormApp.DestinationType.SPREADSHEET,
+      newSheet.getId()
+    );
   }
 }
