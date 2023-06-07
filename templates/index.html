@@ -77,7 +77,7 @@
           <? } ?>
           <? } else { ?>
           <tr>
-            <td colspan="4" class="empty-queue">ไม่มีเพลงในคิว</td>
+            <td colspan="5" class="empty-queue">ไม่มีเพลงในคิว</td>
           </tr>
           <? } ?>
         </tbody>
@@ -484,8 +484,13 @@
         queue.innerHTML = tableHtml;
       }
       function onFailure(error) {
+        spinner.style.display = "none";
         const errorSpan = document.querySelector("span.error");
-        errorSpan.innerHTML = "ข้อผิดพลาด: " + error;
+        if (errorSpan.innerText.indexOf("HTTP 0") !== 0) {
+          errorSpan.innerHTML = "เกิดข้อผิดพลาดขณะดึงข้อมูล: คุณยังไม่ได้เชื่อมต่ออินเตอร์เน็ต";
+        } else {
+          errorSpan.innerHTML = "เกิดข้อผิดพลาดขณะดึงข้อมูล: " + error;
+        }
       }
       let interval = setInterval(getData, 5000);
       function getData() {
