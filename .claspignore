@@ -9,5 +9,5 @@
 !**/*.html
 
 # ignore even valid files if in…
-.git/
-node_modules/
+.git/**
+node_modules/**
