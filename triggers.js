@@ -42,7 +42,7 @@ function onFormSubmit(e) {
 
   // For inspecting reason.
   Logger.log(row);
-  
+
   // Next part is soldly for preventing google sheet overwriting data in the same row
   // when there's a lot of request in form.
   // It will try to wait as per exponentialBackoff_ work when the lock still active,
@@ -51,8 +51,8 @@ function onFormSubmit(e) {
     // locking for 5s
     // no reason for this magic number, just come up in my mind
     sheetLocker.waitLock(5000);
-  }, 5)
-  
+  }, 5);
+
   // Now actually append new data to the data sheet.
   sheetDataSheet.appendRow(row);
 

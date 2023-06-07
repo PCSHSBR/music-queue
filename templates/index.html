@@ -487,7 +487,8 @@
         spinner.style.display = "none";
         const errorSpan = document.querySelector("span.error");
         if (errorSpan.innerText.indexOf("HTTP 0") !== 0) {
-          errorSpan.innerHTML = "เกิดข้อผิดพลาดขณะดึงข้อมูล: คุณยังไม่ได้เชื่อมต่ออินเตอร์เน็ต";
+          errorSpan.innerHTML =
+            "เกิดข้อผิดพลาดขณะดึงข้อมูล: คุณยังไม่ได้เชื่อมต่ออินเตอร์เน็ต";
         } else {
           errorSpan.innerHTML = "เกิดข้อผิดพลาดขณะดึงข้อมูล: " + error;
         }
