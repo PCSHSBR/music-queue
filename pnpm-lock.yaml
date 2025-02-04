@@ -9,15 +9,15 @@ importers:
   .:
     dependencies:
       '@types/google-apps-script':
-        specifier: ^1.0.56
-        version: 1.0.56
+        specifier: ^1.0.92
+        version: 1.0.92
     devDependencies:
       '@google/clasp':
         specifier: ^2.5.0
         version: 2.5.0
       typescript:
-        specifier: ^4.9.3
-        version: 4.9.3
+        specifier: ^4.9.5
+        version: 4.9.5
 
 packages:
 
@@ -45,8 +45,8 @@ packages:
   '@types/cacheable-request@6.0.3':
     resolution: {integrity: sha512-IQ3EbTzGxIigb1I3qPZc1rWJnH0BmSKv5QYTalEwweFvyBDLSAe24zP0le/hyi7ecGfZVlIVAg4BZqb8WBwKqw==}
 
-  '@types/google-apps-script@1.0.56':
-    resolution: {integrity: sha512-3YGOtRlnWPSARl/n2BKt0qiIA6Y3/5BLC2zH9s/jcu+1rpxR07noLCFxTZ2BQBIfDl6+Vs9iKjLTgdbbL8q/mg==}
+  '@types/google-apps-script@1.0.92':
+    resolution: {integrity: sha512-QWkcGH0Ll0NjPXfnMuMT1rH3ics/6s9DKZiAB8pQIZNfSrRaJIqoChOuR7Sr+n5oe5XF1NPJ4RVPE3Bvfh9heQ==}
 
   '@types/http-cache-semantics@4.0.4':
     resolution: {integrity: sha512-1m0bIFVc7eJWyve9S0RnuRgcQqF/Xd5QsUZAZeQFr1Q3/p9JWoQQEqmVy+DPTNpGXwhgIetAoYF8JSc33q29QA==}
@@ -966,8 +966,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  typescript@4.9.3:
-    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+  typescript@4.9.5:
+    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
 
@@ -1063,7 +1063,7 @@ snapshots:
       split-lines: 3.0.0
       strip-bom: 5.0.0
       ts2gas: 4.2.0
-      typescript: 4.9.3
+      typescript: 4.9.5
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -1081,7 +1081,7 @@ snapshots:
       '@types/node': 22.13.1
       '@types/responselike': 1.0.3
 
-  '@types/google-apps-script@1.0.56': {}
+  '@types/google-apps-script@1.0.92': {}
 
   '@types/http-cache-semantics@4.0.4': {}
 
@@ -2018,7 +2018,7 @@ snapshots:
   ts2gas@4.2.0:
     dependencies:
       type-fest: 2.19.0
-      typescript: 4.9.3
+      typescript: 4.9.5
 
   tslib@1.14.1: {}
 
@@ -2030,7 +2030,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  typescript@4.9.3: {}
+  typescript@4.9.5: {}
 
   undici-types@6.20.0: {}
 
