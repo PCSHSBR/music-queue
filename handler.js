@@ -9,7 +9,7 @@
 function getDataTable() {
   let template = HtmlService.createTemplateFromFile("templates/table");
   template.data = getData();
-  Logger.log(template.evaluate().getContent());
+  // Logger.log(template.evaluate().getContent());
   return template.evaluate().getContent();
 }
 
@@ -26,7 +26,7 @@ function getData() {
   let cacheKey = QUEUE_CACHE_KEY;
   let cacheData = cache.get(cacheKey);
   // return cached data if last update was more than MIN_LAST_TIME_BEFORE_USE_CACHE time ago
-  if (
+  if (false && // disable cache
     (cacheData &&
       now.getTime() - lastUpdate > MIN_LAST_TIME_BEFORE_USE_CACHE &&
       now.getTime() - lastUpdate < MAX_LAST_TIME_BEFORE_USE_CACHE)

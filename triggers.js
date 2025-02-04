@@ -59,9 +59,6 @@ function onFormSubmit(e) {
     row.push(data[i].getResponse());
   }
 
-  // For inspecting reason.
-  Logger.log(row);
-
   // Next part is soldly for preventing google sheet overwriting data in the same row
   // when there's a lot of request in form.
   // It will try to wait as per exponentialBackoff_ work when the lock still active,
