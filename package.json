@@ -4,12 +4,13 @@
   "description": "",
   "main": "triggers.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clasp": "clasp"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@google/clasp": "^2.5.0",
     "typescript": "^4.9.3"
   },
   "dependencies": {
