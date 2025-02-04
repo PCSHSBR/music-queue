@@ -1,3 +1,11 @@
+/**
+ * Define a constant and a proxy for script's property
+ * Author: Patsagorn Yuenyong (PCSHSBR 28) <ptsgrn.dev>
+ * License: MIT
+ * Always sync this file with the source at <https://github.com/PCSHSBR/music-queue>!
+ * Date: 3 Nov 2023
+ */
+
 let properties = PropertiesService.getScriptProperties();
 /**
  * จำนวนมิลลิวินาทีหลังจากที่บรรทัดสุดท้ายถูกขอก่อนที่จะให้สคริปต์ดึงค่าจากแคช

@@ -1,3 +1,14 @@
+/**
+ * All trigger functions by some event (eg. from submit).
+ * Author: Patsagorn Yuenyong (PCSHSBR 28) <ptsgrn.dev>
+ * License: MIT
+ * Always sync this file with the source at <https://github.com/PCSHSBR/music-queue>!
+ * Date: 3 Nov 2023
+ */
+
+/**
+ * Setting up the app script for permission on FormApp and SpreadsheetApp.
+ */
 function setup() {
   // for form permission
   FormApp.getActiveForm();
@@ -6,7 +17,15 @@ function setup() {
 
 let sheetLocker = LockService.getScriptLock();
 
-// on form submit, save response to data sheet
+/**
+ * On form submit, run this workflow:
+ * - Get current time and date
+ * - Open data sheet
+ * - Get data submitted, make it into an array
+ * - push that array to last row in data sheet
+ *  - make sure that the lock is in released state, else wait
+ * - done
+ */
 function onFormSubmit(e) {
   let sheet = SpreadsheetApp.openByUrl(DATA_SHEET_URL);
   let sheetDataSheet = sheet.getSheetByName(SHEET_NAME);

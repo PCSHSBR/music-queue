@@ -1,4 +1,12 @@
 /**
+ * Other helper and/or utils functions.
+ * Author: Patsagorn Yuenyong (PCSHSBR 28) <ptsgrn.dev>
+ * License: MIT
+ * Always sync this file with the source at <https://github.com/PCSHSBR/music-queue>!
+ * Date: 3 Nov 2023
+ */
+
+/**
  * Calls a closure, retries on failure, and returns the value it gives.
  *
  * Usage:

@@ -1,5 +1,14 @@
 /**
+ * Background job
+ * Author: Patsagorn Yuenyong (PCSHSBR 28) <ptsgrn.dev>
+ * License: MIT
+ * Always sync this file with the source at <https://github.com/PCSHSBR/music-queue>!
+ * Date: 3 Nov 2023
+ */
+
+/**
  * ลบการตอบกลับฟอร์มทั้งหมด
+ * @trigger
  * @returns {void}
  */
 function deleteOldSongsInForm() {
@@ -9,6 +18,10 @@ function deleteOldSongsInForm() {
   resetFormTargetSheet();
 }
 
+/**
+ * Remove a sheet link
+ * @return {void}
+ */
 function resetFormTargetSheet() {
   Logger.log("Resetting form target sheet");
   // get current sheet target by active google form
