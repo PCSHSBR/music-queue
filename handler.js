@@ -27,20 +27,20 @@ function getData() {
   let cacheData = cache.get(cacheKey);
   // return cached data if last update was more than MIN_LAST_TIME_BEFORE_USE_CACHE time ago
   if (
-    false ||
     (cacheData &&
-      now - lastUpdate > MIN_LAST_TIME_BEFORE_USE_CACHE &&
-      now - lastUpdate < MAX_LAST_TIME_BEFORE_USE_CACHE)
+      now.getTime() - lastUpdate > MIN_LAST_TIME_BEFORE_USE_CACHE &&
+      now.getTime() - lastUpdate < MAX_LAST_TIME_BEFORE_USE_CACHE)
   ) {
     Logger.log("Using cached data");
     return JSON.parse(cacheData);
   }
-  // only get last 75 rows
+
+  let currentRowCount = sheetData.getLastRow();
   let data = sheetData
     .getRange(
-      /* row */ sheetData.getLastRow() - 74,
+      /* row */ Math.max(currentRowCount - 74, 0),
       /* column */ 1,
-      /* numRows */ 75,
+      /* numRows */ currentRowCount,
       /* numColumns */ 4
     )
     .getValues();
@@ -51,30 +51,24 @@ function getData() {
       `yyyy-MM-dd ${new Date().getHours() >= 12 ? "12" : "00"}:00:00+0700`
     )
   );
-  let todayData = [];
-  for (let i = 0; i < data.length; i++) {
-    let row = data[i];
+
+  let todayData = data.filter((row) => {
     let rowDate = new Date(row[0]);
-    if (rowDate >= today) {
-      todayData.push({
-        timestamp: Utilities.formatDate(
-          rowDate,
-          "GMT+7",
-          "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        ),
-        name: row[1],
-        artist: row[2],
-        note: row[3],
-      });
-    }
-  }
-  todayData = todayData
-    .sort(function (a, b) {
-      // Turn your strings into dates, and then subtract them
-      // to get a value that is either negative, positive, or zero.
-      return new Date(b.timestamp) - new Date(a.timestamp);
-    })
-    .reverse();
+    return rowDate >= today;
+  }).map((row) => {
+    return {
+      timestamp: Utilities.formatDate(
+        new Date(row[0]),
+        "GMT+7",
+        "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+      ),
+      name: row[1],
+      artist: row[2],
+      note: row[3],
+    };
+  }).sort((a, b) => {
+    return (new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()) * -1;
+  })
   cache.put(cacheKey, JSON.stringify(todayData), CACHE_TIME);
   return todayData;
 }
