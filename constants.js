@@ -30,7 +30,7 @@ const QUEUE_CACHE_KEY = properties.getProperty("QUEUE_CACHE_KEY") || "queue";
  * ระยะเวลาที่แคชจะหมดอายุ ก่อนจะถูกคำนวนใหม่
  */
 const CACHE_TIME =
-  parseInt(properties.getProperty("CACHE_TIME")) || 1000 * 60 * 60 * 6; // 6 hours
+  parseInt(properties.getProperty("CACHE_TIME")) || 1000 * 60 * 5; // 5 minutes
 
 /**
  * ชีตที่ใช้เก็บข้อมูล สถิติ ต่าง ๆ และใช้ดึงรายการคิวเพลง
