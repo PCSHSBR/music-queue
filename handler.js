@@ -38,9 +38,9 @@ function getData() {
   let currentRowCount = sheetData.getLastRow();
   let data = sheetData
     .getRange(
-      /* row */ Math.max(currentRowCount - 74, 0),
+      /* row */ Math.max(currentRowCount - BUFFER_ROW_COUNT - 1, 2),
       /* column */ 1,
-      /* numRows */ currentRowCount,
+      /* numRows */ Math.min(currentRowCount, BUFFER_ROW_COUNT),
       /* numColumns */ 4
     )
     .getValues();
