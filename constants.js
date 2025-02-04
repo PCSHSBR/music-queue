@@ -41,3 +41,10 @@ const DATA_SHEET_URL = properties.getProperty("DATA_SHEET_URL");
  * ชื่อเวิร์กชีตที่ใช้เก็บข้อมูล
  */
 const SHEET_NAME = properties.getProperty("SHEET_NAME") || "Form Responses 1";
+
+/**
+ * จำนวนแถว Buffer ที่จะดึงข้อมูลจาก Google Sheet
+ * บางครั้งจำนวนแถวมีเยอะมากจนเกินไป จึงต้องกำหนดจำนวนแถวที่จะดึงข้อมูล
+ * (คาดการณ์จากจำนวนการขอเพลงในแต่ละวัน แต้ 1000 ก็ยังไม่ช้ามาก)
+ */
+const BUFFER_ROW_COUNT = parseInt(properties.getProperty("BUFFER_ROW_COUNT")) || 1000;
